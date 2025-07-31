@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   allow_unauthenticated_access only: %i[index show]
-  before_action :set_product, only: %i[show edit destroy]
+  before_action :set_product, only: %i[show edit update destroy]
 
   def index
     @products = Product.all
@@ -45,7 +45,7 @@ class ProductsController < ApplicationController
 
   private 
     def product_params
-      params.expect(product: [:name, :description])
+      params.expect(product: [:name, :description, :featured_image])
     end
 end
 
