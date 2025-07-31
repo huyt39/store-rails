@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :session
+  resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -11,18 +13,18 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get "/products" => "products#index"
+  # get "/products" => "products#index"
 
-  get "products/new" => "products#new"
-  post "/products" => "products#create"
+  # get "products/new" => "products#new"
+  # post "/products" => "products#create"
 
-  get "products/:id" => "products#show"
+  # get "products/:id" => "products#show"
 
-  get "products/:id/edit" => "products#edit"
-  patch "products/:id" => "products#update"
-  put "products/:id" => "products#update"
+  # get "products/:id/edit" => "products#edit"
+  # patch "products/:id" => "products#update"
+  # put "products/:id" => "products#update"
 
-  delete "/products/:id" => "product#destroy"
-  
+  # delete "/products/:id" => "product#destroy"
+  resources :products
   root "products#index"
 end
