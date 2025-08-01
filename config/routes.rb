@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   # put "products/:id" => "products#update"
 
   # delete "/products/:id" => "product#destroy"
-  resources :products
+  resources :products do
+    resources :subcribers, only: [:create]
+  end
   root "products#index"
 end
