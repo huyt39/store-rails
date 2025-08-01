@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   resources :products do
     resources :subcribers, only: [:create]
   end
+  resource :unsubcribe, only: [:show]
   root "products#index"
 end
